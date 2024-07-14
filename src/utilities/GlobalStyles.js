@@ -46,27 +46,43 @@ export const Styles = StyleSheet.create({
         alignItems: "center",
         margin: 8,
     },
+
+    btnRed: {
+        width: 73,
+        height: 80,
+        borderRadius: 24,
+        backgroundColor: myColors.red,
+        justifyContent: "center",
+        alignItems: "center",
+        margin: 8,
+    },
     
     row: {
         maxWidth: '100%',
         flexDirection: "row",
     },
 
-
+    //--------------------------------------
     // screen styles
-    screenFirstNumber: {
-        fontSize: 66,
+    //--------------------------------------
+    // display_NumContainer : {
+    //     width: '100%',
+    //     height: 150,
+
+    //     justifyContent: "flex-end",
+
+    //     borderColor: myColors.white, borderWidth: 1,
+
+    //     paddingRight: 10,
+    // },
+    
+    
+    display_Num : {
+        textAlign: "right",
+        fontSize: 60,
         fontFamily: FontFamily.SFProRoundedSemibold,
         color: myColors.gray,
-        fontWeight: '200',
-        alignSelf: "flex-end",
-    },
 
-    screenSecondNumber: {
-        fontSize: 40,
-        fontFamily: FontFamily.SFProRoundedRegular,
-        color: myColors.gray,
-        fontWeight: '200',
-        alignSelf: "flex-end",
+        color: myColors.white
     },
 })

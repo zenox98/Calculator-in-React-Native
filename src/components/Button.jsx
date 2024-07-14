@@ -2,25 +2,21 @@ import { TouchableOpacity, Text } from "react-native";
 import { Colors, FontFamily } from "../utilities/GlobalStyles.js";
 import { Styles } from "../utilities/GlobalStyles.js";
 
-export default Button = ({title, onPress, isBlue, isGray}) => {
+export default Button = ({title, onPress, isBlue, isGray, isRed}) => {
 
     return (
         <TouchableOpacity
             style={
-                isBlue 
-                ? Styles.btnBlue 
-                : isGray 
-                ? Styles.btnGray
-                : Styles.btnDark
+                isBlue ? Styles.btnBlue : 
+                isGray ? Styles.btnGray :
+                isRed ? Styles.btnRed : Styles.btnDark
             }
             onPress={onPress}
         >
             <Text 
                style={
-                   isBlue || isGray 
-                   ? Styles.smallTextLight
-                   : Styles.smallTextDark 
-                }
+                   isBlue || isGray ? Styles.smallTextLight : Styles.smallTextDark 
+            }
             >
                 {title}
             </Text>
