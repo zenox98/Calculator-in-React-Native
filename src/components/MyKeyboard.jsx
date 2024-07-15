@@ -22,28 +22,28 @@ export default MyKeyboard = () => {
 		else if (val == '=') {
 			
 			try {
-					if (
-							(value.match(/\(/g) || []).length 
-							== 
-							(value.match(/\)/g) || []).length
-					) {
+				if (
+					(value.match(/\(/g) || []).length 
+					== 
+					(value.match(/\)/g) || []).length
+				) {
 
-							if (
-									value.slice(-1) == '+' 
-									|| value.slice(-1) == '-' 
-									|| value.slice(-1) == '*' 
-									|| value.slice(-1) == '/'
-							) {
-									setValue(`${eval(value.replace('()', '(0)').slice(0, -1))}`)
-							}
-							else {
-									setValue(`${eval(value.replace('()', '(0)') + '*1')}`)
-							}
+					if (
+						value.slice(-1) == '+' 
+						|| value.slice(-1) == '-' 
+						|| value.slice(-1) == '*' 
+						|| value.slice(-1) == '/'
+					) {
+						setValue(`${eval(value.replace('()', '(0)').slice(0, -1))}`)
 					}
+					else {
+						setValue(`${eval(value.replace('()', '(0)') + '*1')}`)
+					}
+				}
 			}
 			
 			catch (e) {
-					setValue('Format Error')
+				setValue('Format Error')
 			}
 		}
 	
@@ -53,52 +53,54 @@ export default MyKeyboard = () => {
 	
 		else if (val == '()') {
 			
-				if (value == '0') {
-						setValue('(')
-						setBracketOpen(true)
-				}
+			if (value == '0') {
+				setValue('(')
+				setBracketOpen(true)
+			}
 			
-				else if (value.slice(-1) == '+' || value.slice(-1) == '-' || value.slice(-1) == '*' || value.slice(-1) == '/') {
-						setValue(value + '(')
-						setBracketOpen(true)
-				}
+			else if (value.slice(-1) == '+' || value.slice(-1) == '-' || value.slice(-1) == '*' || value.slice(-1) == '/') {
+				setValue(value + '(')
+				setBracketOpen(true)
+			}
 			
+			else {
+				if (bracketopen == true) {
+					setValue(value + ')')
+					setBracketOpen(false)
+				}
 				else {
-						if (bracketopen == true) {
-								setValue(value + ')')
-								setBracketOpen(false)
-						}
-						else {
-								setValue(value + '(')
-								setBracketOpen(true)
-						}
+					setValue(value + '(')
+					setBracketOpen(true)
 				}
+			}
 		}
 	
 		else {
-				if (value == '0') {
-						if (val == '+' || val == '-' || val == '*' || val == '/' || val == '.' || val == '%') {
-								setValue(value + val)
-						}
-						else {
-								setValue(val)
-						}
+			if (value == '0') {
+				if (val == '+' || val == '-' || val == '*' || val == '/' || val == '.' || val == '%') {
+					setValue(value + val)
+					}
+				else {
+					setValue(val)
 				}
+			}
 				
-				// console.log(val)
-				else if (isNaN(val)) {
-						// console.log(value.slice(-1))
-						if (value.slice(-1) == '+' || value.slice(-1) == '-' || value.slice(-1) == '*' || value.slice(-1) == '/' || value.slice(-1) == '.' || value.slice(-1) == '%') {
-								setValue(value.slice(0, -1) + val)
-						}
-						else {
-								setValue(value + val)
-						}
-				}
+			// console.log(val)
+			
+			else if (isNaN(val)) {
+			// console.log(value.slice(-1))
 				
-				else if (!isNaN(val)) {
-						setValue(value + val)
+				if (value.slice(-1) == '+' || value.slice(-1) == '-' || value.slice(-1) == '*' || value.slice(-1) == '/' || value.slice(-1) == '.' || value.slice(-1) == '%') {
+					setValue(value.slice(0, -1) + val)
 				}
+				else {
+					setValue(value + val)
+				}
+			}
+				
+			else if (!isNaN(val)) {
+				setValue(value + val)
+			}
 		}
 	
 	// end of handlePross code
@@ -116,19 +118,19 @@ export default MyKeyboard = () => {
                 // borderColor : Colors.white, borderWidth : 1,
                 justifyContent: "flex-start",
 
-								paddingRight : 10
+				paddingRight : 10
             }}>
 
-								<TextInput
-                	  multiline
-										scrollEnabled
-										textAlign="right"
+				<TextInput
+                	multiline
+					scrollEnabled
+					textAlign="right"
                   	showSoftInputOnFocus={false}
                   	
-										style={Styles.display_Num}
+					style={Styles.display_Num}
                   	value={value}
 
-										selectionColor={Colors.grey1}
+					selectionColor={Colors.grey1}
                   	selectionState={{ start: value.length, end: value.length }}
                   	selectionHandleColor={Colors.blue1}
                 />  
