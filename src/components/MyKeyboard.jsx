@@ -20,7 +20,6 @@ export default MyKeyboard = () => {
 		}
 		
 		else if (val == '=') {
-			
 			try {
 				if (
 					(value.match(/\(/g) || []).length 
