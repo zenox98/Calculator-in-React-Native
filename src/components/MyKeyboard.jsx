@@ -111,28 +111,27 @@ export default MyKeyboard = () => {
             
             {/** Area 1 : Cal. Screen */}
             <View style={{ 
-                width : '100%', height : 230,
-                justifyContent: "flex-end",
-                alignSelf: "center",								
-                // borderColor : Colors.white, borderWidth : 1,
-                justifyContent: "flex-start",
+              width : '100%', height : 230,
+              justifyContent: "flex-end",
+              alignSelf: "center",								
+              // borderColor : Colors.white, borderWidth : 1,
+              justifyContent: "flex-start",
 
-				paddingRight : 10
+  				    paddingRight : 10
             }}>
 
-				<TextInput
-                	multiline
-					scrollEnabled
-					textAlign="right"
-                  	showSoftInputOnFocus={false}
+              {/** Display Number */}
+		  		    <TextInput
+                multiline scrollEnabled textAlign="right"
+                showSoftInputOnFocus={false}
                   	
-					style={Styles.display_Num}
-                  	value={value}
-
-					selectionColor={Colors.grey1}
-                  	selectionState={{ start: value.length, end: value.length }}
-                  	selectionHandleColor={Colors.blue1}
-                />  
+                style={Styles.display_Num}
+                value={value}
+          
+					      selectionColor={Colors.grey1}
+                selectionState={{ start: value.length, end: value.length }}
+                selectionHandleColor={Colors.blue1}
+              />  
             </View>
 
 
@@ -150,24 +149,28 @@ export default MyKeyboard = () => {
                     <Button title="%" isGray onPress={() => HandlePress("%")} />
                     <Button title="÷" isBlue onPress={() => HandlePress("÷")} />
                 </View>
+
                 <View style={Styles.row}>
                     <Button title="7" onPress={() => HandlePress("7")} />
                     <Button title="8" onPress={() => HandlePress("8")} />
                     <Button title="9" onPress={() => HandlePress("9")} />
                     <Button title="x" isBlue onPress={() => HandlePress("*")} />
                 </View>
+
                 <View style={Styles.row}>
                     <Button title="4" onPress={() => HandlePress("4")} />
                     <Button title="5" onPress={() => HandlePress("5")} />
                     <Button title="6" onPress={() => HandlePress("6")} />
                     <Button title="-" isBlue onPress={() => HandlePress("-")} />
                 </View>
+
                 <View style={Styles.row}>
                     <Button title="1" onPress={() => HandlePress("1")} />
                     <Button title="2" onPress={() => HandlePress("2")} />
                     <Button title="3" onPress={() => HandlePress("3")} />
                     <Button title="+" isBlue onPress={() => HandlePress("+")} />
                 </View>
+
                 <View style={Styles.row}>
                     <Button title="." onPress={() => HandlePress(".")} />
                     <Button title="0" onPress={() => HandlePress("0")} />
